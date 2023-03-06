@@ -1,0 +1,26 @@
+{
+  "name": "backstack-server",
+  "version": "1.0.0",
+  "description": "Backend of Backstack",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx tsc && node dist/index.js",
+    "dev": "npx tsc -w & nodemon dist/index.js"
+  },
+  "keywords": [
+    "api",
+    "server",
+    "express"
+  ],
+  "author": "Shakti Ranjan Debata",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.6",
+    "nodemon": "^2.0.21",
+    "typescript": "^4.9.5"
+  }
+}
