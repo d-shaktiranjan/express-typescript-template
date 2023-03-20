@@ -1,6 +1,19 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, json } from 'express';
+import { connectToDB } from './db';
+
+// dotenv import & use
+import 'dotenv/config';
+
 const app = express();
-const port = 3000;
+
+// use 4000 port, in the absence of env variable
+const port = process.env.PORT || 4000;
+
+// middlewares
+app.use(json());
+
+// connection to Mongo DB
+connectToDB();
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello World!');
