@@ -1,0 +1,26 @@
+[
+    {
+        "mobile": 9999999999,
+        "email": "admin@gp.com",
+        "firstName": "Admin",
+        "lastName": "Sir",
+        "role": "ADMIN",
+        "password": "password"
+    },
+    {
+        "mobile": 8888888888,
+        "email": "distributor@gp.com",
+        "firstName": "Distributor",
+        "lastName": "Mno",
+        "role": "DISTRIBUTOR",
+        "password": "password"
+    },
+    {
+        "mobile": 7777777777,
+        "email": "dealer@gp.com",
+        "firstName": "Dealer",
+        "lastName": "Xyz",
+        "role": "DEALER",
+        "password": "password"
+    }
+]
