@@ -31,5 +31,3 @@ pnpm run dev
 ```
 
 **MUST** Follow [Code of conduct.](./docs/COC.md)
-
-## [Data seeding docs](./docs/seed.md)
