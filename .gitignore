@@ -1,7 +1,8 @@
+# /* cSpell:disable */
 # Ignore node_modules directory
 node_modules/
 
-# Ingnore build
+# Ignore build
 dist/
 
 # Ignore environment variables file

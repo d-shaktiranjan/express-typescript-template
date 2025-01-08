@@ -1,5 +1,5 @@
 import { Response } from "express";
-import { APP_MESSAGES, GENERIC_MESSAGES } from "../config/messages";
+import { GENERIC_MESSAGES } from "../config/messages";
 
 const apiResponse = (
     res: Response,
@@ -22,7 +22,7 @@ const apiResponse = (
 
 export const successResponse = (
     res: Response,
-    message: string = APP_MESSAGES.REQUEST_SUCCESS,
+    message: string,
     statusCode: number = 200,
     data: object | null = null,
     metaData: object | null = null,
@@ -30,7 +30,7 @@ export const successResponse = (
 
 export const errorResponse = (
     res: Response,
-    message: string = APP_MESSAGES.REQUEST_FAILED,
+    message: string,
     statusCode: number = 400,
     errors: Record<string, string[]> | null = null,
 ) => apiResponse(res, message, statusCode, null, null, false, errors);

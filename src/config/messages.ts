@@ -15,4 +15,7 @@ export enum DB_MESSAGES {
 
 export enum GENERIC_MESSAGES {
     FILE_SIZE_ERROR = "File size must be under 50MB",
+    NO_CONTENT = "No content",
+    REQUIRED = "REQUIRED",
+    FIELD_ERROR = "FIELD_ERROR",
 }

@@ -23,6 +23,4 @@ export const CORS_ORIGIN: string[] = eval(process.env.CORS_ORIGIN || "");
 
 export const TOKEN_EXPIRY_TIME: number =
     parseInt((process.env.TOKEN_EXPIRY_TIME as string) || "20") * 60 * 1000;
-
-export const DASHBOARD_URL: string = process.env.DASHBOARD_URL || "";
 // ########## end env variables ##########
