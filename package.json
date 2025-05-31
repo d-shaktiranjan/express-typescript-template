@@ -1,5 +1,5 @@
 {
-    "name": "project-title",
+    "name": "shakti-express-typescript-template",
     "version": "0.0.1",
     "main": "src/index.ts",
     "license": "",
@@ -9,9 +9,9 @@
         "dev": "nodemon --exec ts-node src/index.ts",
         "lint": "eslint src/",
         "format": "prettier ./src --write",
-        "format_checker": "prettier ./src --check",
+        "format.checker": "prettier ./src --check",
         "spell": "cspell lint ./src/",
-        "check": "pnpm lint && pnpm format_checker && pnpm spell"
+        "check": "pnpm lint && pnpm format.checker && pnpm spell"
     },
     "dependencies": {
         "bcrypt": "^6.0.0",
