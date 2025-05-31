@@ -23,6 +23,9 @@ importers:
       jsonwebtoken:
         specifier: ^9.0.2
         version: 9.0.2
+      lorin:
+        specifier: ^2.0.3
+        version: 2.0.3
       mongoose:
         specifier: ^8.15.1
         version: 8.15.1
@@ -1100,6 +1103,9 @@ packages:
 
   lodash.once@4.1.1:
     resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
+
+  lorin@2.0.3:
+    resolution: {integrity: sha512-HfQKToKxq4M4kcB5eA1uj8+A3S36sAay7AAf2DIyyQNZZLCLS+snIM2jAM+XQ9JlIhxmuO6gBIhFQ3ZPSx9z6g==}
 
   make-error@1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
@@ -2702,6 +2708,8 @@ snapshots:
   lodash.merge@4.6.2: {}
 
   lodash.once@4.1.1: {}
+
+  lorin@2.0.3: {}
 
   make-error@1.3.6: {}
 

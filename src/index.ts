@@ -8,6 +8,7 @@ import express, {
     static as static_,
     urlencoded,
 } from "express";
+import { logger, loggerMiddleware } from "lorin";
 
 // constant imports
 import { CORS_ORIGIN, PORT } from "./config/constants";
@@ -28,6 +29,7 @@ app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
 app.use(json());
 app.use(urlencoded({ extended: true }));
 app.use(requestBodyMiddleware);
+app.use(loggerMiddleware);
 app.use("/public", static_("public"));
 app.set("trust proxy", true);
 
@@ -38,5 +40,5 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.listen(PORT, () => {
-    console.log(APP_MESSAGES.RUNNING);
+    logger.success(APP_MESSAGES.RUNNING);
 });

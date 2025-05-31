@@ -1,4 +1,6 @@
+import { logger } from "lorin";
 import { connect } from "mongoose";
+
 import { MONGO_URI } from "./constants";
 import { DB_MESSAGES } from "./messages";
 
@@ -6,10 +8,10 @@ const connectToDB = () => {
     if (typeof MONGO_URI == "undefined")
         throw new Error(DB_MESSAGES.URI_MISSING);
     connect(MONGO_URI)
-        .then(() => console.log(DB_MESSAGES.CONNECTED))
+        .then(() => logger.success(DB_MESSAGES.CONNECTED))
         .catch((error: unknown) => {
             if (error instanceof Error)
-                console.log(DB_MESSAGES.FAILED, error.message);
+                logger.error(`${DB_MESSAGES.FAILED} ${error}`);
         });
 };
 export default connectToDB;
