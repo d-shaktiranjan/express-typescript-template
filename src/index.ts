@@ -18,6 +18,7 @@ import { apiMetaData } from "./utils/global.utils";
 
 // DB import & connect
 import connectToDB from "./config/dbConnect";
+import requestBodyMiddleware from "./middlewares/body.middleware";
 connectToDB();
 
 const app = express();
@@ -26,7 +27,9 @@ const app = express();
 app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
 app.use(json());
 app.use(urlencoded({ extended: true }));
+app.use(requestBodyMiddleware);
 app.use("/public", static_("public"));
+app.set("trust proxy", true);
 
 app.get("/", (req: Request, res: Response) => {
     const host = req.protocol + "://" + req.get("host") + req.originalUrl;
