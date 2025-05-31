@@ -1,7 +1,7 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import { DEBUG } from "../config/constants";
 import { APP_MESSAGES } from "../config/messages";
-import { errorResponse } from "../utils/apiResponse";
+import { errorResponse } from "../utils/apiResponse.utils";
 
 const asyncWrapper = (requestHandler: RequestHandler) => {
     return (req: Request, res: Response, next: NextFunction) => {

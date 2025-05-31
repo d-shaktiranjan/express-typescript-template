@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import multer, { diskStorage } from "multer";
 
 import { GENERIC_MESSAGES } from "../config/messages";
-import { errorResponse } from "../utils/apiResponse";
+import { errorResponse } from "../utils/apiResponse.utils";
 
 const storage = diskStorage({
     destination: (req, file, cb) => {
