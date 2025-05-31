@@ -1,9 +1,9 @@
 import { randomBytes } from "crypto";
+import { NextFunction, Request, Response } from "express";
 import multer, { diskStorage } from "multer";
-import { Request, Response, NextFunction } from "express";
 
-import { errorResponse } from "../utils/apiResponse";
 import { GENERIC_MESSAGES } from "../config/messages";
+import { errorResponse } from "../utils/apiResponse";
 
 const storage = diskStorage({
     destination: (req, file, cb) => {

@@ -1,4 +1,5 @@
 // package imports
+import cors from "cors";
 import "dotenv/config";
 import express, {
     Request,
@@ -7,10 +8,9 @@ import express, {
     static as static_,
     urlencoded,
 } from "express";
-import cors from "cors";
 
 // constant imports
-import { PORT, CORS_ORIGIN } from "./config/constants";
+import { CORS_ORIGIN, PORT } from "./config/constants";
 import { APP_MESSAGES } from "./config/messages";
 
 // util imports
