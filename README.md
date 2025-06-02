@@ -1,3 +1,26 @@
+# Express TypeScript MongoDB Template
+
+## Getting Started
+
+### Using GitHub Template (Recommended)
+
+Click the **"Use this template"** button on GitHub to create your own repository.
+
+### Using degit
+
+```bash
+npx degit d-shaktiranjan/express-typescript-template my-app
+cd my-app
+```
+
+### Using Git Clone
+
+```bash
+git clone https://github.com/d-shaktiranjan/express-typescript-template my-app
+cd my-app
+rm -rf .git
+```
+
 # Setup
 
 Make sure you have [Node.js](https://nodejs.org/en/) using [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script).
