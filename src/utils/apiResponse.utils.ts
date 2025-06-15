@@ -1,40 +1,49 @@
 import { Response } from "express";
-import { GENERIC_MESSAGES } from "../config/messages";
-
-const apiResponse = (
-    res: Response,
-    message: string,
-    statusCode: number,
-    data: object | null,
-    metaData: object | null,
-    isSuccess: boolean,
-    errors: Record<string, string[]> | null,
-) => {
-    const responseObject = {
-        isSuccess,
-        message,
-        ...(metaData && { metaData }),
-        ...(data && { data }),
-        ...(errors && { errors }),
-    };
-    return res.status(statusCode).json(responseObject);
-};
 
 export const successResponse = (
     res: Response,
-    message: string,
-    statusCode: number = 200,
-    data: object | null = null,
-    metaData: object | null = null,
-) => apiResponse(res, message, statusCode, data, metaData, true, null);
+    options: {
+        message: string;
+        statusCode?: number;
+        data?: object | null;
+        meta?: object | null;
+    },
+): void => {
+    if (!options.statusCode) options.statusCode = 200;
+    return apiResponse(res, true, options as ApiResponseOptions);
+};
 
 export const errorResponse = (
     res: Response,
-    message: string,
-    statusCode: number = 400,
-    errors: Record<string, string[]> | null = null,
-) => apiResponse(res, message, statusCode, null, null, false, errors);
-
-export const noContentResponse = (res: Response) => {
-    return successResponse(res, GENERIC_MESSAGES.NO_CONTENT, 204);
+    options: {
+        message: string;
+        statusCode?: number;
+        errors?: Record<string, string[]> | null;
+    },
+): void => {
+    if (!options.statusCode) options.statusCode = 400;
+    return apiResponse(res, false, options as ApiResponseOptions);
 };
+
+interface ApiResponseOptions {
+    message: string;
+    statusCode: number;
+    data?: object;
+    meta?: object;
+    errors?: Record<string, string[]>;
+}
+
+function apiResponse(
+    res: Response,
+    isSuccess: boolean,
+    options: ApiResponseOptions,
+) {
+    const responseObject = {
+        isSuccess,
+        message: options.message,
+        ...(options.meta && { meta: options.meta }),
+        ...(options.data && { data: options.data }),
+        ...(options.errors && { errors: options.errors }),
+    };
+    res.status(options.statusCode).json(responseObject);
+}
