@@ -31,7 +31,11 @@ export const fileSizeLimitErrorHandler = (
     next: NextFunction,
 ) => {
     if (err && err instanceof Error)
-        return errorResponse(res, GENERIC_MESSAGES.FILE_SIZE_ERROR, 413);
+        return errorResponse(res, {
+            message: GENERIC_MESSAGES.FILE_SIZE_ERROR,
+            statusCode: 413,
+        });
+
     next();
 };
 

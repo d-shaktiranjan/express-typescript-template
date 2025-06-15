@@ -10,12 +10,11 @@ const asyncWrapper = (requestHandler: RequestHandler) => {
         Promise.resolve(requestHandler(req, res, next)).catch((error) => {
             const message = DEBUG ? error.message : APP_MESSAGES.SERVER_ERROR;
             if (DEBUG) logger.error(error);
-            return errorResponse(
-                res,
+            return errorResponse(res, {
                 message,
-                error.statusCode || 400,
-                error.errors,
-            );
+                statusCode: error.statusCode || 400,
+                errors: error.errors || null,
+            });
         });
     };
 };
