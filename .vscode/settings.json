@@ -2,5 +2,9 @@
     "editor.codeActionsOnSave": {
         "source.removeUnusedImports": "explicit",
         "source.organizeImports": "explicit"
-    }
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "files.autoSave": "off",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
 }
