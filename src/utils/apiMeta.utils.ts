@@ -3,8 +3,8 @@ import { TAG } from "../config/constants";
 
 const getAppMetadata = () => {
     const packageJson = readFileSync("package.json", "utf8");
-    const { name, version } = JSON.parse(packageJson);
-    return { name, version };
+    const { name, version, license } = JSON.parse(packageJson);
+    return { name, version, license };
 };
 
 const getRunningBranch = () => {
@@ -18,5 +18,4 @@ export const apiMetaData = {
     host: "",
     runningBranch: getRunningBranch(),
     documentation: null,
-    license: null,
 };
