@@ -15,7 +15,7 @@ import { CORS_ORIGIN, PORT } from "./config/constants";
 import { APP_MESSAGES } from "./config/messages";
 
 // util imports
-import { apiMetaData } from "./utils/global.utils";
+import { apiMetaData } from "./utils/apiMeta.utils";
 
 // DB import & connect
 import connectToDB from "./config/dbConnect";
