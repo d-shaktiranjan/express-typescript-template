@@ -2,6 +2,7 @@ import { randomBytes } from "crypto";
 import { NextFunction, Request, Response } from "express";
 import multer, { diskStorage } from "multer";
 
+import { MULTER_SIZE_LIMIT } from "../config/constants";
 import { GENERIC_MESSAGES } from "../config/messages";
 import { errorResponse } from "../utils/apiResponse.utils";
 
@@ -42,6 +43,6 @@ export const fileSizeLimitErrorHandler = (
 export default multer({
     storage,
     limits: {
-        fileSize: 50 * 1024 * 1024, // 50 MB file size limit
+        fileSize: MULTER_SIZE_LIMIT * 1024 * 1024, // default 1MB limit
     },
 });
