@@ -4,7 +4,7 @@
     "main": "src/index.ts",
     "license": "",
     "scripts": {
-        "build": "tsc",
+        "build": "tsc && tsx ./src/utils/build.utils.ts",
         "start": "node dist/index.js",
         "dev": "tsx --watch src/index.ts",
         "lint": "eslint src/",
