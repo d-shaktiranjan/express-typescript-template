@@ -1,5 +1,5 @@
-import { GENERIC_MESSAGES } from "../config/messages";
-import ApiError from "../libs/ApiError.lib";
+import { GENERIC_MESSAGES } from "@/config/messages";
+import ApiError from "@/libs/ApiError.lib";
 
 export const nullChecker = (elementObject: Record<string, unknown>) => {
     const errors: Record<string, string[]> = {};

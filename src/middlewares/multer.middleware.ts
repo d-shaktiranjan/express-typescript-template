@@ -2,9 +2,9 @@ import { randomBytes } from "crypto";
 import { NextFunction, Request, Response } from "express";
 import multer, { diskStorage } from "multer";
 
-import { MULTER_SIZE_LIMIT } from "../config/constants";
-import { GENERIC_MESSAGES } from "../config/messages";
-import { errorResponse } from "../utils/apiResponse.utils";
+import { MULTER_SIZE_LIMIT } from "@/config/constants";
+import { GENERIC_MESSAGES } from "@/config/messages";
+import { errorResponse } from "@/utils/apiResponse.utils";
 
 const storage = diskStorage({
     destination: (req, file, cb) => {
@@ -32,8 +32,7 @@ export const fileSizeLimitErrorHandler = (
     next: NextFunction,
 ) => {
     if (err && err instanceof Error)
-        return errorResponse(res, {
-            message: GENERIC_MESSAGES.FILE_SIZE_ERROR,
+        return errorResponse(res, GENERIC_MESSAGES.FILE_SIZE_ERROR, {
             statusCode: 413,
         });
 

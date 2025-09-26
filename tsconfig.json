@@ -10,11 +10,14 @@
         "baseUrl": "./",
         "outDir": "dist",
         "rootDir": "src",
+        "paths": {
+            "@/*": ["src/*"]
+        },
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "strictPropertyInitialization": true,
         "noImplicitThis": true,
-        "alwaysStrict": true,
+        "alwaysStrict": true
     },
-    "exclude": ["node_modules"],
+    "exclude": ["node_modules"]
 }

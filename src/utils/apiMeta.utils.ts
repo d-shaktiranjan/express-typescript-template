@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { logger } from "lorin";
 
-import { TAG } from "../config/constants";
+import { TAG } from "@/config/constants";
 
 const getMetaDataFromPackage = () => {
     const packageJson = readFileSync("package.json", "utf8");
