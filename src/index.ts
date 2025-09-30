@@ -22,7 +22,7 @@ import connectToDB from "./config/dbConnect";
 import requestBodyMiddleware from "./middlewares/body.middleware";
 connectToDB();
 
-const app = express();
+export const app = express();
 
 // middleware usages
 app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
@@ -40,5 +40,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.listen(PORT, () => {
-    logger.success(APP_MESSAGES.RUNNING);
+    app.listen(PORT, () => {
+        logger.success(APP_MESSAGES.RUNNING);
+    });
 });
