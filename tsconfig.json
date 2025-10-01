@@ -10,7 +10,7 @@
         "resolveJsonModule": true,
         "baseUrl": "./",
         "outDir": "dist",
-        "rootDir": "src",
+        "rootDir": "./",
         "paths": {
             "@/*": ["src/*"]
         },
