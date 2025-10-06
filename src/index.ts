@@ -40,9 +40,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.listen(PORT, () => {
-    app.listen(PORT, () => {
-        logger.success(APP_MESSAGES.RUNNING);
-    });
+    logger.success(APP_MESSAGES.RUNNING);
 });
 
 export default app;
