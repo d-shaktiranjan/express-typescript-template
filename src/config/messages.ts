@@ -4,8 +4,10 @@ import { PORT } from "./constants";
 export const APP_MESSAGES = {
     RUNNING: `App is running on ${PORT}`,
     SERVER_ERROR: "Internal server error.",
-    INVALID_SUCCESS_CODE: "Invalid success status code. It should be between 200 and 299.",
-    INVALID_ERROR_CODE: "Invalid error status code. It should be between 400 and 599.",
+    INVALID_SUCCESS_CODE:
+        "Invalid success status code. It should be between 200 and 299.",
+    INVALID_ERROR_CODE:
+        "Invalid error status code. It should be between 400 and 599.",
 } as const;
 
 // DB messages
