@@ -12,8 +12,8 @@
         "format": "prettier ./src --write",
         "format:checker": "prettier ./src --check",
         "spell": "cspell lint ./src/",
-        "check": "pnpm lint && pnpm format:checker && pnpm spell",
         "test": "vitest run",
+        "check": "pnpm lint && pnpm format:checker && pnpm spell && pnpm test",
         "prepare": "husky"
     },
     "dependencies": {
