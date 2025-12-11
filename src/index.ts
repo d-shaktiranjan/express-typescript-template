@@ -11,15 +11,15 @@ import express, {
 import { logger, loggerMiddleware } from "lorin";
 
 // constant imports
-import { CORS_ORIGIN, PORT } from "./global/config/constants";
-import { APP_MESSAGES } from "./global/config/messages";
+import { CORS_ORIGIN, PORT } from "./core/config/constants";
+import { APP_MESSAGES } from "./core/config/messages";
 
 // util imports
-import apiMetaData from "./global/utils/apiMeta.utils";
+import apiMetaData from "./core/utils/apiMeta.utils";
 
 // DB import & connect
-import connectToDB from "./global/config/dbConnect";
-import requestBodyMiddleware from "./global/middlewares/body.middleware";
+import connectToDB from "./core/config/dbConnect";
+import requestBodyMiddleware from "./core/middlewares/body.middleware";
 connectToDB();
 
 const app = express();

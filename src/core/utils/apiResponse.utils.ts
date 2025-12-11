@@ -1,6 +1,6 @@
 import { Response } from "express";
 
-import { APP_MESSAGES } from "@/global/config/messages";
+import { APP_MESSAGES } from "@/core/config/messages";
 
 export const successResponse = (
     res: Response,
