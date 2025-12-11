@@ -1,9 +1,9 @@
 import { NextFunction, Request, RequestHandler, Response } from "express";
 import { logger } from "lorin";
 
-import { DEBUG } from "@/config/constants";
-import { APP_MESSAGES } from "@/config/messages";
-import { errorResponse } from "@/utils/apiResponse.utils";
+import { DEBUG } from "@/global/config/constants";
+import { APP_MESSAGES } from "@/global/config/messages";
+import { errorResponse } from "@/global/utils/apiResponse.utils";
 
 const asyncWrapper = (requestHandler: RequestHandler) => {
     return (req: Request, res: Response, next: NextFunction) => {
