@@ -4,17 +4,41 @@
 
 This code of conduct outlines the guidelines and expectations for contributors participating in the project. These rules are designed to ensure consistency and maintain a clean and readable codebase.
 
+## Project Structure
+
+```
+src/
+├── config/                         # App configuration (env, DB, constants)
+├── middlewares/
+│   └── core/                       # Reusable/global middlewares
+│       ├── asyncWrapper.middleware.ts   # Handles async errors
+│       └── body.middleware.ts           # Request body parsing/validation
+├── utils/
+│   ├── global.utils.ts             # Shared helper functions
+│   └── apiResponse.utils.ts        # Standardized API responses
+└── modules/                        # Feature-based modules
+    ├── auth/
+    │   ├── auth.controller.ts      # Handles HTTP requests
+    │   ├── auth.service.ts         # Business logic
+    │   ├── auth.routes.ts          # Route definitions
+    │   └── auth.middleware.ts      # Auth-specific middleware
+    └── blog/
+        ├── blog.controller.ts      # Handles blog endpoints
+        ├── blog.service.ts         # Blog business logic
+        └── blog.routes.ts          # Blog routes
+```
+
 ## Directory Naming
 
-- **MUST:** Directory names must be in snake case.
+- **MUST:** Directory names must be in kebab case.
 - **SHOULD:** Directory name must be in plural form.
 - Ex- `routers`, `controllers`
 
 ## File Naming
 
-- **MUST:** File names must be in camel case.
+- **MUST:** File names must be in kebab case.
 - **SHOULD:** Controllers,middlewares,models, route & test file names should include the directory name.
-- Ex- `auth.routers.ts`, `auth.model.ts`, `auth.controller.ts`, `auth.test.ts`
+- Ex- `auth.routers.ts`, `auth.models.ts`, `auth.controllers.ts`, `auth.tests.ts`
 
 ## Variable & Class Naming & Declaration
 
@@ -61,4 +85,4 @@ This code of conduct outlines the guidelines and expectations for contributors p
 - **MUST:** Make atomic commit.
 - **MUST:** Be follow branch naming conventions.
 - **MUST:** Be follow commit message conventions.
-- **MUST:** Follow [Git Conduct](./gitConduct.md).
+- **MUST:** Follow [Git Conduct](./git-conduct.md).
