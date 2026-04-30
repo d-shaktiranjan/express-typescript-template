@@ -7,7 +7,7 @@
         "build": "tsc && tsc-alias && tsx src/utils/build.utils.ts",
         "start": "node dist/index.js",
         "typecheck": "tsc --noEmit",
-        "dev": "tsx watch src/run.ts --clear-screen=false",
+        "dev": "tsx watch --clear-screen=false src/index.ts",
         "lint": "eslint src/",
         "format": "prettier ./src --write",
         "format:checker": "prettier ./src --check",
