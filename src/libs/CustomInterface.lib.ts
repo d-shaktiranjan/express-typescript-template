@@ -8,3 +8,9 @@ export interface FileAttachment {
 export interface MulterFiles {
     [fieldName: string]: Express.Multer.File[] | undefined;
 }
+
+export interface Pagination {
+    totalCount: number;
+    limit: number;
+    count: number;
+}

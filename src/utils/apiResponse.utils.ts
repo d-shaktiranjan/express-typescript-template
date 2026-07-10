@@ -1,14 +1,20 @@
 import { Response } from "express";
 
 import { APP_MESSAGES } from "@/config/messages";
+import type { Pagination } from "@/libs/CustomInterface.lib";
 
-export const successResponse = (
+interface ApiResponseMeta {
+    [key: string]: unknown;
+    pagination?: Pagination;
+}
+
+export const successResponse = <T>(
     res: Response,
     message: string,
     options: {
         statusCode?: number;
-        data?: object | null;
-        meta?: object | null;
+        data?: T;
+        meta?: ApiResponseMeta | null;
     } = {},
 ) => {
     if (!options.statusCode) options.statusCode = 200;
@@ -40,18 +46,18 @@ export const errorResponse = (
     });
 };
 
-interface ApiResponseOptions {
+interface ApiResponseOptions<T> {
     statusCode: number;
-    data?: object | null;
-    meta?: object | null;
+    data?: T;
+    meta?: ApiResponseMeta | null;
     errors?: Record<string, string[]> | null;
 }
 
-function apiResponse(
+function apiResponse<T>(
     res: Response,
     isSuccess: boolean,
     message: string,
-    options: ApiResponseOptions,
+    options: ApiResponseOptions<T>,
 ) {
     const responseObject = {
         isSuccess,
