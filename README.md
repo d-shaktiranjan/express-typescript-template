@@ -54,3 +54,5 @@ pnpm run dev
 ```
 
 **MUST** Follow [Code of conduct.](./docs/COC.md)
+
+Generated from [d-shaktiranjan/express-typescript-template.](https://github.com/d-shaktiranjan/express-typescript-template)

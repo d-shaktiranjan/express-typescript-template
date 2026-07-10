@@ -38,6 +38,7 @@ This project is an **Express.js-based backend application** written in TypeScrip
     - controllers → request/response handling
     - schemas → validation
     - models → database layer
+    - services → For example, suppose we have two controllers: one with getAllPosts() for admins and another with getPublicPosts() for public users. The logic is almost the same, with the only difference being the filter. Instead of duplicating the logic, we create a service such as getPostsService(filter: Record<string, boolean> | null = null). In the admin controller, we can call getPostsService() to retrieve all posts. In the public controller, we can call getPostsService({ isPublic: true }) to retrieve only public posts. This is a simple example of how to use controllers and services effectively.
 
 ---
 
@@ -75,5 +76,7 @@ This project is an **Express.js-based backend application** written in TypeScrip
 - Maintain consistency with existing patterns.
 - Do not over-comment the codebase; only include necessary comments. Comments should be minimal, necessary, and start with a lowercase letter.
 - Avoid emojis on the codebase.
+- Use minimal conventional commit messages, and do not create commits unless I explicitly ask.
+- Don't bypass any rule checks or type checks or husky checks.
 
 > Consistency over cleverness.
