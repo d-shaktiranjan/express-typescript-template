@@ -6,6 +6,6 @@ child.on("exit", (code) => {
         console.error(`Typecheck failed with exit code ${code}`);
         process.exit(1);
     } else {
-        import("./index");
+        import("./index.js");
     }
 });
