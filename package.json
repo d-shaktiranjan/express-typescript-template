@@ -4,7 +4,7 @@
     "main": "src/index.ts",
     "license": "",
     "scripts": {
-        "build": "tsc && tsc-alias && tsx src/utils/build.utils.ts",
+        "build": "tsc && tsc-alias && tsx src/core/utils/build.utils.ts",
         "start": "node dist/index.js",
         "typecheck": "tsc --noEmit",
         "dev": "tsx watch src/run.ts --clear-screen=false",
@@ -14,35 +14,40 @@
         "spell": "cspell lint ./src/",
         "test": "vitest run",
         "check": "pnpm lint && pnpm format:checker && pnpm spell && pnpm test",
-        "prepare": "husky"
+        "prepare": "husky",
+        "module:create": "tsx src/core/utils/create-module.utils.ts"
     },
     "dependencies": {
-        "cors": "^2.8.5",
-        "dotenv": "^17.2.3",
-        "express": "^5.2.1",
-        "lorin": "^2.0.3",
-        "mongoose": "^9.0.1",
-        "multer": "2.0.2"
+        "cors": "^2.8.6",
+        "dotenv": "^18.0.10",
+        "express": "^5.3.0",
+        "lorin": "^2.0.5",
+        "mongoose": "^9.12.1",
+        "multer": "2.5.0"
     },
     "devDependencies": {
-        "@eslint/js": "^9.39.1",
+        "@eslint/js": "^10.0.1",
         "@types/cors": "^2.8.19",
         "@types/express": "^5.0.6",
-        "@types/multer": "^2.0.0",
-        "@types/supertest": "^6.0.3",
-        "@typescript-eslint/eslint-plugin": "^8.49.0",
-        "@typescript-eslint/parser": "^8.49.0",
-        "cspell": "^9.4.0",
-        "eslint": "^9.39.1",
-        "globals": "^16.5.0",
+        "@types/multer": "^2.3.0",
+        "@types/supertest": "^7.2.1",
+        "@typescript-eslint/eslint-plugin": "^8.72.2",
+        "@typescript-eslint/parser": "^8.72.2",
+        "@typescript/native": "npm:typescript@^7.0.2",
+        "cspell": "^10.4.1",
+        "eslint": "^10.14.0",
+        "globals": "^17.14.0",
         "husky": "^9.1.7",
-        "prettier": "^3.7.4",
-        "supertest": "^7.1.4",
-        "tsc-alias": "^1.8.16",
-        "tsx": "^4.21.0",
-        "typescript": "^5.9.3",
-        "typescript-eslint": "^8.49.0",
-        "vitest": "^4.0.15"
+        "prettier": "^3.9.10",
+        "supertest": "^7.3.2",
+        "tsc-alias": "^1.9.10",
+        "tsx": "^4.23.15",
+        "typescript": "npm:@typescript/typescript6@^6.0.2",
+        "typescript-eslint": "^8.72.2",
+        "vitest": "^5.1.0"
     },
-    "packageManager": "pnpm@10.12.1"
+    "packageManager": "pnpm@10.12.1",
+    "engines": {
+        "node": "^24.18.0"
+    }
 }
