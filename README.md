@@ -54,3 +54,15 @@ pnpm run dev
 ```
 
 **MUST** Follow [Code of conduct.](./docs/COC.md)
+
+## Feature modules
+
+Keep feature code under `src/modules/<feature>/`. Shared configuration, libraries,
+middleware, and utilities live in `src/core/`. Keep database models inside their
+feature modules.
+
+Run `pnpm module:create` for an interactive prompt, or
+`pnpm module:create user-profile` to create a module directly. The scaffolder
+creates empty config, controller, messages, model, route, schema, seeder, service,
+and utility files. Module names and filenames use kebab-case. Existing modules
+are never overwritten. Mount new routers in `src/index.ts` under `/api`.

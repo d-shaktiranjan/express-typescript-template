@@ -14,7 +14,8 @@
         "spell": "cspell lint ./src/",
         "test": "vitest run",
         "check": "pnpm lint && pnpm format:checker && pnpm spell && pnpm test",
-        "prepare": "husky"
+        "prepare": "husky",
+        "module:create": "tsx src/core/utils/create-module.utils.ts"
     },
     "dependencies": {
         "cors": "^2.8.5",
