@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Express API Documentation Preview</title>
+        <link
+            rel="stylesheet"
+            href="/docs/changelog/preview-assets/style.css"
+        />
+    </head>
+    <body>
+        <header class="header-bar">
+            <div class="header-content">
+                <a class="brand" href="/docs/changelog"
+                    >Express API Documentation</a
+                >
+                <a class="back-link" href="/docs/changelog">All documents</a>
+            </div>
+        </header>
+
+        <main class="page">
+            <section class="controls" aria-label="Markdown controls">
+                <div class="view-switch" role="tablist" aria-label="View mode">
+                    <button
+                        id="previewBtn"
+                        class="tab active"
+                        type="button"
+                        role="tab"
+                        aria-selected="true"
+                    >
+                        Preview
+                    </button>
+                    <button
+                        id="rawBtn"
+                        class="tab"
+                        type="button"
+                        role="tab"
+                        aria-selected="false"
+                    >
+                        Raw
+                    </button>
+                </div>
+
+                <div class="file-actions">
+                    <a id="rawFileLink" class="action-button" href="#">
+                        View Raw File
+                    </a>
+                    <div
+                        id="rawActions"
+                        class="raw-actions hidden"
+                        aria-label="Raw markdown actions"
+                    >
+                        <button
+                            id="copyRawBtn"
+                            class="action-button"
+                            type="button"
+                        >
+                            Copy Raw
+                        </button>
+                        <button
+                            id="downloadRawBtn"
+                            class="action-button"
+                            type="button"
+                        >
+                            Download Raw
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="meta" aria-live="polite">
+                <p id="activeFile">File: -</p>
+                <p id="status"></p>
+            </section>
+
+            <section class="viewer-wrap">
+                <article
+                    id="viewer"
+                    class="viewer markdown-body"
+                    tabindex="0"
+                ></article>
+            </section>
+        </main>
+
+        <script src="/docs/changelog/preview-assets/marked.js"></script>
+        <script src="/docs/changelog/preview-assets/purify.js"></script>
+        <script src="/docs/changelog/preview-assets/app.js"></script>
+    </body>
+</html>

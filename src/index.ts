@@ -20,6 +20,7 @@ import apiMetaData from "./core/utils/apiMeta.utils";
 // DB import & connect
 import connectToDB from "./core/config/dbConnect";
 import requestBodyMiddleware from "./core/middlewares/body.middleware";
+import docsRouter from "./modules/docs/docs.route";
 connectToDB();
 
 const app = express();
@@ -32,6 +33,8 @@ app.use(requestBodyMiddleware);
 app.use(loggerMiddleware);
 app.use("/public", static_("public"));
 app.set("trust proxy", true);
+
+app.use("/docs", docsRouter);
 
 app.get("/", (req: Request, res: Response) => {
     const host = req.protocol + "://" + req.get("host") + req.originalUrl;

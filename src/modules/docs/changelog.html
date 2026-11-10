@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Express API Documentation</title>
+        <style>
+            :root {
+                color-scheme: dark;
+                font-family:
+                    Inter,
+                    system-ui,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    sans-serif;
+                background: #0f1117;
+                color: #e6e8eb;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                min-width: 320px;
+                min-height: 100vh;
+                margin: 0;
+                background: #0f1117;
+            }
+
+            .header-bar {
+                min-height: 56px;
+                display: flex;
+                align-items: center;
+                background: #1b1b1b;
+                box-shadow: 0 1px 4px rgb(0 0 0 / 45%);
+            }
+
+            .header-content,
+            main {
+                width: min(100% - 40px, 1200px);
+                margin: 0 auto;
+            }
+
+            .brand {
+                color: #ffffff;
+                font-size: 20px;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            main {
+                padding: 44px 0 64px;
+            }
+
+            h1 {
+                margin: 0;
+                color: #ffffff;
+                font-size: clamp(30px, 5vw, 42px);
+                line-height: 1.2;
+            }
+
+            .description {
+                margin: 12px 0 24px;
+                color: #aeb4bd;
+                font-size: 16px;
+            }
+
+            .document-filters {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin: 0 0 24px;
+            }
+
+            .filter-button {
+                padding: 7px 12px;
+                border: 1px solid #4a5260;
+                border-radius: 4px;
+                background: #171a21;
+                color: #c8cdd5;
+                font: inherit;
+                font-size: 13px;
+                font-weight: 600;
+                cursor: pointer;
+            }
+
+            .filter-button:hover,
+            .filter-button:focus-visible {
+                border-color: #61affe;
+                color: #ffffff;
+                outline: none;
+            }
+
+            .filter-button.active {
+                border-color: #61affe;
+                background: #61affe;
+                color: #07111d;
+            }
+
+            .document-list {
+                display: grid;
+                gap: 12px;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+
+            .document-item {
+                border: 1px solid rgb(97 175 254 / 55%);
+                border-radius: 4px;
+                background: rgb(97 175 254 / 8%);
+                box-shadow: 0 1px 2px rgb(0 0 0 / 25%);
+            }
+
+            .document-link {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                padding: 16px 18px;
+                color: #d9eaff;
+                font-family: ui-monospace, monospace;
+                font-size: 14px;
+                line-height: 1.5;
+                overflow-wrap: anywhere;
+                text-decoration: none;
+            }
+
+            .document-badge {
+                flex: 0 0 auto;
+                min-width: 76px;
+                padding: 5px 10px;
+                border-radius: 3px;
+                background: #61affe;
+                color: #07111d;
+                font-family: inherit;
+                font-size: 11px;
+                font-weight: 700;
+                text-align: center;
+            }
+
+            .document-badge[data-document-type="DOCUMENT"] {
+                background: #b692f6;
+            }
+
+            .document-badge[data-document-type="MIGRATION"] {
+                background: #f2c94c;
+            }
+
+            .document-link:hover,
+            .document-link:focus-visible {
+                background: rgb(97 175 254 / 14%);
+                color: #ffffff;
+                outline: none;
+            }
+
+            .empty-state {
+                padding: 24px;
+                border: 1px solid #3a3f48;
+                border-radius: 4px;
+                background: #171a21;
+                color: #aeb4bd;
+            }
+
+            .empty-state[hidden],
+            .document-item[hidden] {
+                display: none;
+            }
+
+            @media (max-width: 600px) {
+                .header-content,
+                main {
+                    width: min(100% - 24px, 1200px);
+                }
+
+                main {
+                    padding-top: 32px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header-bar">
+            <div class="header-content">
+                <a class="brand" href="/docs/">Express API Documentation</a>
+            </div>
+        </header>
+        <main>
+            <h1>Express API Docs</h1>
+            <p class="description">
+                Changelogs, guides, and migration documentation.
+            </p>
+            <nav class="document-filters" aria-label="Filter documents by type">
+                <button
+                    class="filter-button active"
+                    type="button"
+                    data-document-filter="ALL"
+                    aria-pressed="true"
+                >
+                    All
+                </button>
+                <button
+                    class="filter-button"
+                    type="button"
+                    data-document-filter="CHANGELOG"
+                    aria-pressed="false"
+                >
+                    Changelogs
+                </button>
+                <button
+                    class="filter-button"
+                    type="button"
+                    data-document-filter="DOCUMENT"
+                    aria-pressed="false"
+                >
+                    Documents
+                </button>
+                <button
+                    class="filter-button"
+                    type="button"
+                    data-document-filter="MIGRATION"
+                    aria-pressed="false"
+                >
+                    Migrations
+                </button>
+            </nav>
+            <ul class="document-list">
+                {{DOCUMENT_ITEMS}}
+                <li id="filterEmptyState" class="empty-state" hidden>
+                    No documents match this filter.
+                </li>
+            </ul>
+        </main>
+        <script>
+            const filterButtons = document.querySelectorAll(
+                "[data-document-filter]",
+            );
+            const documentItems = document.querySelectorAll(
+                ".document-item[data-document-type]",
+            );
+            const filterEmptyState =
+                document.getElementById("filterEmptyState");
+
+            for (const button of filterButtons) {
+                button.addEventListener("click", () => {
+                    const selectedType = button.dataset.documentFilter;
+                    let visibleDocumentCount = 0;
+
+                    for (const filterButton of filterButtons) {
+                        const isActive = filterButton === button;
+                        filterButton.classList.toggle("active", isActive);
+                        filterButton.setAttribute(
+                            "aria-pressed",
+                            String(isActive),
+                        );
+                    }
+
+                    for (const item of documentItems) {
+                        const isVisible =
+                            selectedType === "ALL" ||
+                            item.dataset.documentType === selectedType;
+                        item.hidden = !isVisible;
+                        if (isVisible) visibleDocumentCount += 1;
+                    }
+
+                    filterEmptyState.hidden =
+                        documentItems.length === 0 || visibleDocumentCount > 0;
+                });
+            }
+        </script>
+    </body>
+</html>

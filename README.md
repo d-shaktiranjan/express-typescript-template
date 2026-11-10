@@ -78,3 +78,28 @@ This follows the [official TypeScript side-by-side setup](https://devblogs.micro
 Keep these aliases when updating dependencies until the tooling supports the
 TypeScript 7 API. The TypeScript configuration uses NodeNext module resolution;
 relative dynamic imports use `.js` extensions for compatibility with emitted code.
+
+## API documentation
+
+- `/docs` serves Swagger UI with try-it-out support.
+- `/docs/openapi.json` serves the raw OpenAPI specification for API tools.
+- `/docs/changelog` lists changelogs, guides, and migration notes from `docs/`.
+- `/docs/changelog/<filename>` previews a document; append `/raw` to read its source.
+
+Add endpoints and request/response schemas to
+`src/modules/docs/openapi.document.ts` as features are implemented. The starter
+specification documents the existing root metadata endpoint; it does not import
+Juuno's business APIs. The OpenAPI JSON is served directly to remain compatible
+with Swagger and other OpenAPI consumers.
+
+Use `CHANGELOG.<branch-name>.md` for branch changelogs (replace `/` in the branch
+name with `-`), `DOCUMENT.<description>.md` for guides, and
+`MIGRATION.<description>.md` for migration notes. Only matching regular files are
+listed or served; other files and symbolic links are excluded. The viewer offers
+filters, Markdown preview, raw view, copy, and download. Markdown rendering and
+sanitization assets are served locally, with no CDN requirement.
+
+Documentation routes are public. The build script copies the viewer's HTML,
+CSS, and JavaScript into `dist/modules/docs`. Deploy the root `docs/` directory
+alongside `dist/`, production dependencies, and `package.json`; start the server
+from the project root.

@@ -11,3 +11,10 @@ describe("GET /", () => {
             .expect("Content-Type", /json/)
             .expect(200));
 });
+
+describe("documentation routes", () => {
+    it("mounts Swagger on the application", () =>
+        request(app).get("/docs/").expect(200));
+    it("mounts the changelog viewer on the application", () =>
+        request(app).get("/docs/changelog").expect(200));
+});
